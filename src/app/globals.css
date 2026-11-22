@@ -67,7 +67,28 @@ body {
 }
 
 /* =========================================================================
-   HIGH-CONTRAST VOLUMETRIC COBALT LIGHT SHAFTS (MATCHING REFERENCE IMAGE)
+   ANIMATED MOVING COBALT DOT MATRIX GRID (MATCHING REFERENCE IMAGE)
+   ========================================================================= */
+
+.cobalt-dot-grid-animated {
+  background-image: radial-gradient(rgba(0, 130, 255, 0.45) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  animation: dot-grid-drift 22s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes dot-grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    /* Exact multiple of 18px (18 * 4 = 72px) for a seamless 100% smooth loop */
+    background-position: 72px 72px;
+  }
+}
+
+/* =========================================================================
+   HIGH-CONTRAST VOLUMETRIC COBALT LIGHT SHAFTS
    ========================================================================= */
 
 /* Left Sharp Diagonal Light Shaft */
