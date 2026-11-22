@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${inter.variable} dark`} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col bg-[#03060F] text-white antialiased font-sans selection:bg-[#0057FF] selection:text-white relative">
+      <body className="min-h-screen flex flex-col bg-[#060A13] text-white antialiased font-sans selection:bg-[#0057FF] selection:text-white relative">
         {/* Animated Background Canvas */}
         <AnimatedBackground />
 

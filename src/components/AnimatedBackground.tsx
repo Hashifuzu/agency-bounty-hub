@@ -14,8 +14,8 @@ export default function AnimatedBackground() {
       {/* 2. Subtle Dot Grid Pattern (#1E293B 1px, 24px x 24px) */}
       <div className="subtle-dot-grid absolute inset-0 pointer-events-none" />
 
-      {/* 3. Top Ambient Glow (Soft 10% #0057FF radial fade directly beneath navbar) */}
-      <div className="top-ambient-glow absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[450px] pointer-events-none" />
+      {/* 3. Top Ambient Glow (Soft Cobalt radial fade directly beneath navbar, full width with zero cutoffs) */}
+      <div className="top-ambient-glow absolute top-0 inset-x-0 w-full h-[500px] pointer-events-none" />
     </div>
   );
 }
