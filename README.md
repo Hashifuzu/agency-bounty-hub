@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KREASIHUB — Agency Bounty & Innovation Hub
 
-## Getting Started
+Platform Sayembara & Inovasi Internal Perusahaan yang dirancang khusus untuk agensi kreatif & digital. Menghubungkan tantangan operasional harian agensi dengan solusi inovatif, template terstandar, dan otomasi dari seluruh talenta internal.
 
-First, run the development server:
+![High-Contrast Cobalt & Obsidian Theme](https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&auto=format&fit=crop&q=80)
+
+---
+
+## 🚀 Fitur Utama
+
+- **Bounty Board (Papan Sayembara):**
+  - Tampilan grid kartu sayembara aktif dengan countdown deadline dan hadiah tunai + poin.
+  - Filter kategori agensi: `Desain & Template`, `Video & Motion`, `Tech & Automation`, `SOP & Workflow`, `Pitch & Strategi`.
+  - Search bar interaktif dengan pencarian cepat.
+- **Detail Sayembara & Submission:**
+  - Brief lengkap, tujuan project, deliverable yang diharapkan, dan kriteria penilaian bertingkat.
+  - Form submit karya untuk karyawan dengan multi-link (Figma, Google Drive, GitHub, Loom) dan preview thumbnail.
+- **Panel Review & Penjurian (Mode Manajemen/Admin):**
+  - Kurasi karya masuk dengan status: `Approved`, `Perlu Revisi`, `Pending`, dan penetapan `Winner 🏆` dengan efek konfeti selebrasi.
+- **Arsip Karya & Aset (Hall of Fame):**
+  - Perpustakaan aset internal yang memajang seluruh inovasi pemenang yang siap pakai dan dapat langsung diakses/diunduh oleh seluruh tim.
+- **Leaderboard Inovator:**
+  - Peringkat karyawan paling kontributif berdasarkan total kemenangan dan poin inovasi.
+- **Quick Role Switcher:**
+  - Segmented control di navbar untuk berpindah peran secara instan antara `Karyawan (Talent)` dan `Manajemen (Admin)`.
+- **Desain Editorial High-Contrast Cobalt & Obsidian:**
+  - Sudut tajam 90° (`rounded-none`), tipografi bold uppercase italic, dan animasi berkas cahaya diagonal cobalt dinamis (*GPU-accelerated*).
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) 16 (App Router, Turbopack)
+- **Bahasa:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) v4
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Effects:** Canvas Confetti
+- **State & Data:** React Context dengan auto-sync ke LocalStorage (siap dihubungkan ke Supabase/PostgreSQL)
+
+---
+
+## 📦 Menjalankan Secara Lokal
 
 ```bash
+# Clone repository
+git clone https://github.com/Hashifuzu/agency-bounty-hub.git
+
+# Masuk ke direktori
+cd agency-bounty-hub
+
+# Install dependensi
+npm install
+
+# Jalankan server development
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Panduan Deployment ke Vercel
 
-## Learn More
+Aplikasi ini 100% kompatibel dengan **Vercel** tanpa konfigurasi tambahan (*zero-configuration Next.js App Router*):
 
-To learn more about Next.js, take a look at the following resources:
+1. Masuk ke [Vercel Dashboard](https://vercel.com/new).
+2. Pilih repository **`agency-bounty-hub`** dari akun GitHub Anda.
+3. Biarkan pengaturan default (*Framework Preset: Next.js*).
+4. Klik **Deploy**.
+5. Aplikasi akan langsung aktif secara global dalam hitungan detik!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 Lisensi
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License © 2026 KreasiHub Team.

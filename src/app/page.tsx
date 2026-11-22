@@ -1,69 +1,167 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState, useMemo } from 'react';
+import { useApp } from '@/context/AppContext';
+import CategoryFilter from '@/components/CategoryFilter';
+import BountyCard from '@/components/BountyCard';
+import CreateBountyModal from '@/components/CreateBountyModal';
+import { Plus, Inbox, Layers } from 'lucide-react';
+
+export default function HomePage() {
+  const { bounties, submissions, role } = useApp();
+
+  const [selectedCategory, setSelectedCategory] = useState('Semua Kategori');
+  const [selectedStatus, setSelectedStatus] = useState('Semua Status');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+
+  // Quick Stats
+  const activeBountiesCount = bounties.filter((b) => b.status === 'Open').length;
+  const totalSubmissionsCount = submissions.length;
+  const adoptedAssetsCount = submissions.filter((s) => s.status === 'Winner').length;
+
+  // Category counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { 'Semua Kategori': bounties.length };
+    bounties.forEach((b) => {
+      counts[b.category] = (counts[b.category] || 0) + 1;
+    });
+    return counts;
+  }, [bounties]);
+
+  // Filtered bounties
+  const filteredBounties = useMemo(() => {
+    return bounties.filter((b) => {
+      if (selectedCategory !== 'Semua Kategori' && b.category !== selectedCategory) {
+        return false;
+      }
+      if (selectedStatus !== 'Semua Status' && b.status !== selectedStatus) {
+        return false;
+      }
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const matchTitle = b.title.toLowerCase().includes(q);
+        const matchBrief = b.brief.toLowerCase().includes(q);
+        const matchDept = b.department.toLowerCase().includes(q);
+        if (!matchTitle && !matchBrief && !matchDept) return false;
+      }
+      return true;
+    });
+  }, [bounties, selectedCategory, selectedStatus, searchQuery]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        {/* 1. Page Header (Left-aligned, concise, sharp) */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#0057FF] text-white text-[10px] font-black uppercase tracking-wider mb-2 rounded-none">
+              AGENSI INOVASI // HUB
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
+              SAYEMBARA INTERNAL
+            </h1>
+            <p className="text-sm text-[#8B95A5] mt-1 font-normal">
+              Kirimkan solusi, otomasi, atau template kerja untuk efisiensi operasional agensi.
+            </p>
+          </div>
+
+          {role === 'admin' && (
+            <button
+              onClick={() => setIsCreateModalOpen(true)}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0057FF] text-white text-xs font-black uppercase tracking-wider hover:bg-blue-600 transition-colors border border-white/20 rounded-none shadow-xs"
+            >
+              <Plus className="w-4 h-4" />
+              <span>+ BUAT SAYEMBARA BARU</span>
+            </button>
+          )}
+        </div>
+
+        {/* 2. Quick Stats: 4 Flat Obsidian Cards with thick 4px #0057FF accent */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
+          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
+              TOTAL HADIAH AKTIF
+            </span>
+            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+              Rp 9.750.000
+            </div>
+          </div>
+
+          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
+              SAYEMBARA TERBUKA
+            </span>
+            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+              {activeBountiesCount}
+            </div>
+          </div>
+
+          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
+              KARYA TERKUMPUL
+            </span>
+            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+              {totalSubmissionsCount}
+            </div>
+          </div>
+
+          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
+              INOVASI TERADOPSI
+            </span>
+            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+              {adoptedAssetsCount}
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Filter Bar & Sayembara List */}
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+          selectedStatus={selectedStatus}
+          onSelectStatus={setSelectedStatus}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          categoryCounts={categoryCounts}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+
+        {/* 4. Bounty Grid (3 Columns on Desktop) */}
+        {filteredBounties.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredBounties.map((bounty) => (
+              <BountyCard key={bounty.id} bounty={bounty} />
+            ))}
+          </div>
+        ) : (
+          <div className="p-12 text-center bg-[#0B0F17] border border-[#232D3F] rounded-none">
+            <Inbox className="w-8 h-8 text-[#8B95A5] mx-auto mb-2" />
+            <h3 className="text-sm font-bold uppercase text-white">
+              TIDAK ADA SAYEMBARA DITEMUKAN
+            </h3>
+            <p className="text-xs text-[#8B95A5] mt-1">
+              Coba sesuaikan kata kunci pencarian atau ganti filter kategori.
+            </p>
+            <button
+              onClick={() => {
+                setSelectedCategory('Semua Kategori');
+                setSelectedStatus('Semua Status');
+                setSearchQuery('');
+              }}
+              className="mt-3 px-3 py-1.5 text-xs font-bold uppercase bg-[#0057FF] text-white hover:bg-blue-600 rounded-none transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+              RESET FILTER
+            </button>
+          </div>
+        )}
       </main>
+
+      {/* Create Bounty Modal */}
+      <CreateBountyModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+      />
     </div>
   );
 }

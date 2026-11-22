@@ -1,26 +1,223 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cobalt: #0057FF;
+  --bg-dark-1: #03060F;
+  --bg-dark-2: #070D1F;
+  --surface-card: #0B0F17;
+  --surface-inner: #0F1521;
+  --surface-active: #0C1C3D;
+  --border-primary: #E2E8F0;
+  --border-secondary: #232D3F;
+  --text-main: #FFFFFF;
+  --text-muted: #8B95A5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #03060F;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Sharp Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03060F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232D3F;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0057FF;
+}
+
+/* Flat High-Contrast Obsidian Card Utility */
+.cobalt-card {
+  background-color: #0B0F17;
+  border: 1px solid #232D3F;
+  border-radius: 0px;
+  transition: border-color 0.15s ease;
+}
+
+.cobalt-card:hover {
+  border-color: #0057FF;
+}
+
+.cobalt-accent-right {
+  border-right: 4px solid #0057FF;
+}
+
+.cobalt-accent-bottom {
+  border-bottom: 4px solid #0057FF;
+}
+
+/* =========================================================================
+   HIGH-CONTRAST VOLUMETRIC COBALT LIGHT SHAFTS (MATCHING REFERENCE IMAGE)
+   ========================================================================= */
+
+/* Left Sharp Diagonal Light Shaft */
+.cobalt-shaft-left {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 87, 255, 0.08) 15%,
+    rgba(0, 102, 255, 0.45) 45%,
+    rgba(0, 160, 255, 0.75) 55%,
+    rgba(0, 102, 255, 0.45) 65%,
+    rgba(0, 87, 255, 0.08) 85%,
+    transparent 100%
+  );
+  filter: blur(28px);
+  transform: rotate(-18deg);
+  animation: shaft-left-anim 10s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* Right Wide Diagonal Light Shaft */
+.cobalt-shaft-right {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 87, 255, 0.06) 15%,
+    rgba(0, 95, 255, 0.38) 40%,
+    rgba(0, 140, 255, 0.65) 55%,
+    rgba(0, 95, 255, 0.38) 70%,
+    rgba(0, 87, 255, 0.06) 85%,
+    transparent 100%
+  );
+  filter: blur(36px);
+  transform: rotate(-17deg);
+  animation: shaft-right-anim 13s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* Center-Left Dynamic Accent Beam */
+.cobalt-shaft-center {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 87, 255, 0.05) 20%,
+    rgba(0, 120, 255, 0.32) 50%,
+    rgba(0, 87, 255, 0.05) 80%,
+    transparent 100%
+  );
+  filter: blur(24px);
+  transform: rotate(-19deg);
+  animation: shaft-center-anim 16s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* Sweeping Highlight Beam */
+.cobalt-shaft-sweep {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 150, 255, 0.18) 50%,
+    transparent 100%
+  );
+  filter: blur(32px);
+  transform: rotate(-18deg);
+  animation: shaft-sweep-anim 18s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* Radial Vignette */
+.bg-radial-vignette {
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 35%,
+    rgba(3, 6, 15, 0.4) 70%,
+    rgba(3, 6, 15, 0.85) 100%
+  );
+}
+
+/* KEYFRAMES */
+@keyframes shaft-left-anim {
+  0% {
+    transform: rotate(-18deg) translate3d(0, -25px, 0) scaleX(0.95);
+    opacity: 0.85;
+  }
+  50% {
+    transform: rotate(-16deg) translate3d(35px, 20px, 0) scaleX(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-19deg) translate3d(-15px, 35px, 0) scaleX(1.02);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shaft-right-anim {
+  0% {
+    transform: rotate(-17deg) translate3d(0, 30px, 0) scaleX(1.05);
+    opacity: 0.75;
+  }
+  50% {
+    transform: rotate(-15deg) translate3d(-35px, -20px, 0) scaleX(0.92);
+    opacity: 0.95;
+  }
+  100% {
+    transform: rotate(-18deg) translate3d(25px, -35px, 0) scaleX(1.12);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shaft-center-anim {
+  0% {
+    transform: rotate(-19deg) translate3d(0, 20px, 0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(-17deg) translate3d(-20px, -20px, 0);
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotate(-20deg) translate3d(15px, 15px, 0);
+    opacity: 0.55;
+  }
+}
+
+@keyframes shaft-sweep-anim {
+  0% {
+    transform: rotate(-18deg) translate3d(-10%, -10%, 0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: rotate(-17deg) translate3d(20%, 15%, 0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(-19deg) translate3d(45%, 5%, 0);
+    opacity: 0.25;
+  }
+}
+
+@keyframes ambient-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.animate-ambient-glow {
+  animation: ambient-glow 8s ease-in-out infinite;
 }
