@@ -109,11 +109,11 @@ export default function HallOfFamePage() {
           {hallOfFameItems.map((item) => (
             <div
               key={item.id}
-              className="bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] flex flex-col justify-between overflow-hidden hover:border-[#0057FF] transition-all rounded-none"
+              className="bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-b-4 border-b-[#0057FF] flex flex-col justify-between overflow-hidden hover:border-[#0057FF] transition-all rounded-none"
             >
               <div>
                 {/* Preview Thumbnail */}
-                <div className="relative w-full h-44 bg-[#060A13] overflow-hidden">
+                <div className="relative w-full h-44 bg-[#0A0F1A] overflow-hidden">
                   <img
                     src={item.previewUrl}
                     alt={item.title}
@@ -134,7 +134,7 @@ export default function HallOfFamePage() {
                   </div>
 
                   {/* Usage Counter */}
-                  <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#060A13] border border-[#232D3F] text-[10px] font-bold text-white flex items-center gap-1 rounded-none">
+                  <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#060A13] border border-[#1E293B] text-[10px] font-bold text-white flex items-center gap-1 rounded-none">
                     <FolderDown className="w-3 h-3 text-[#0057FF]" />
                     <span>{item.downloadsCount}X DIGUNAKAN</span>
                   </div>

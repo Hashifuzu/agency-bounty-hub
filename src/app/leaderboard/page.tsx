@@ -48,11 +48,11 @@ export default function LeaderboardPage() {
         </p>
       </div>
 
-      {/* Top 3 Cards in High-Contrast Obsidian & Cobalt (Mobile order: 1 -> 2 -> 3) */}
+      {/* Top 3 Cards in Refined Obsidian & Cobalt (Mobile order: 1 -> 2 -> 3) */}
       {!searchQuery && top1 && top2 && top3 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 mb-6 sm:mb-8">
           {/* Rank 1 (Top Champion: First on Mobile, Center on Desktop) */}
-          <div className="order-1 md:order-2 p-5 bg-[#0C1C3D] border-2 border-[#0057FF] border-b-4 border-b-[#0057FF] rounded-none flex flex-col justify-between shadow-xs">
+          <div className="order-1 md:order-2 p-5 bg-[#0C1C3D]/90 backdrop-blur-sm border-2 border-[#0057FF] border-b-4 border-b-[#0057FF] rounded-none flex flex-col justify-between shadow-xs">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="w-6 h-6 bg-[#0057FF] text-white text-xs font-black flex items-center justify-center rounded-none">
@@ -91,10 +91,10 @@ export default function LeaderboardPage() {
           </div>
 
           {/* Rank 2 (Second on Mobile, Left on Desktop) */}
-          <div className="order-2 md:order-1 p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
+          <div className="order-2 md:order-1 p-5 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="w-6 h-6 bg-[#0F1521] border border-[#232D3F] text-white text-xs font-black flex items-center justify-center rounded-none">
+                <span className="w-6 h-6 bg-[#0A0F1A] border border-[#1E293B] text-white text-xs font-black flex items-center justify-center rounded-none">
                   2
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#8B95A5]">PERINGKAT 2</span>
@@ -103,19 +103,19 @@ export default function LeaderboardPage() {
                 <img
                   src={top2.avatar}
                   alt={top2.name}
-                  className="w-12 h-12 rounded-none object-cover border border-[#232D3F]"
+                  className="w-12 h-12 rounded-none object-cover border border-[#1E293B]"
                 />
                 <div>
                   <h3 className="text-sm font-extrabold uppercase italic text-white">{top2.name}</h3>
                   <p className="text-xs text-[#8B95A5]">{top2.role}</p>
                 </div>
               </div>
-              <span className="inline-block px-2 py-0.5 bg-[#0F1521] border border-[#232D3F] text-[11px] font-bold text-[#8B95A5] uppercase mb-4 rounded-none">
+              <span className="inline-block px-2 py-0.5 bg-[#0A0F1A] border border-[#1E293B] text-[11px] font-bold text-[#8B95A5] uppercase mb-4 rounded-none">
                 {top2.badge}
               </span>
             </div>
 
-            <div className="pt-3 border-t border-[#232D3F] grid grid-cols-2 gap-2 text-xs">
+            <div className="pt-3 border-t border-[#1E293B] grid grid-cols-2 gap-2 text-xs">
               <div>
                 <span className="text-[10px] uppercase font-bold text-[#8B95A5] block">TOTAL POIN</span>
                 <strong className="text-base font-black text-white">{top2.totalPoints} PTS</strong>
@@ -128,10 +128,10 @@ export default function LeaderboardPage() {
           </div>
 
           {/* Rank 3 (Third on Mobile, Right on Desktop) */}
-          <div className="order-3 p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
+          <div className="order-3 p-5 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="w-6 h-6 bg-[#0F1521] border border-[#232D3F] text-white text-xs font-black flex items-center justify-center rounded-none">
+                <span className="w-6 h-6 bg-[#0A0F1A] border border-[#1E293B] text-white text-xs font-black flex items-center justify-center rounded-none">
                   3
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#8B95A5]">PERINGKAT 3</span>
@@ -140,19 +140,19 @@ export default function LeaderboardPage() {
                 <img
                   src={top3.avatar}
                   alt={top3.name}
-                  className="w-12 h-12 rounded-none object-cover border border-[#232D3F]"
+                  className="w-12 h-12 rounded-none object-cover border border-[#1E293B]"
                 />
                 <div>
                   <h3 className="text-sm font-extrabold uppercase italic text-white">{top3.name}</h3>
                   <p className="text-xs text-[#8B95A5]">{top3.role}</p>
                 </div>
               </div>
-              <span className="inline-block px-2 py-0.5 bg-[#0F1521] border border-[#232D3F] text-[11px] font-bold text-[#8B95A5] uppercase mb-4 rounded-none">
+              <span className="inline-block px-2 py-0.5 bg-[#0A0F1A] border border-[#1E293B] text-[11px] font-bold text-[#8B95A5] uppercase mb-4 rounded-none">
                 {top3.badge}
               </span>
             </div>
 
-            <div className="pt-3 border-t border-[#232D3F] grid grid-cols-2 gap-2 text-xs">
+            <div className="pt-3 border-t border-[#1E293B] grid grid-cols-2 gap-2 text-xs">
               <div>
                 <span className="text-[10px] uppercase font-bold text-[#8B95A5] block">TOTAL POIN</span>
                 <strong className="text-base font-black text-white">{top3.totalPoints} PTS</strong>
@@ -167,9 +167,9 @@ export default function LeaderboardPage() {
       )}
 
       {/* Rankings Table & Mobile Card List */}
-      <div className="bg-[#0B0F17] border border-[#232D3F] rounded-none overflow-hidden">
+      <div className="bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] rounded-none overflow-hidden">
         {/* Table Search Header */}
-        <div className="p-3.5 sm:p-4 border-b border-[#232D3F] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div className="p-3.5 sm:p-4 border-b border-[#1E293B] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           <h3 className="text-xs sm:text-sm font-extrabold uppercase italic text-white">
             TABEL PERINGKAT LENGKAP
           </h3>
@@ -181,27 +181,27 @@ export default function LeaderboardPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari nama karyawan..."
-              className="w-full pl-8 pr-3 py-1.5 text-base sm:text-xs bg-[#0F1521] border border-[#232D3F] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] rounded-none"
+              className="w-full pl-8 pr-3 py-1.5 text-base sm:text-xs bg-[#0A0F1A] border border-[#1E293B] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] rounded-none"
             />
           </div>
         </div>
 
         {/* 1. Mobile Cards View (Visible on < 640px) */}
-        <div className="sm:hidden divide-y divide-[#232D3F]">
+        <div className="sm:hidden divide-y divide-[#1E293B]">
           {filteredLeaderboard.map((emp, index) => {
             const rank = index + 1;
             return (
-              <div key={emp.id} className="p-3.5 flex items-center justify-between gap-3 hover:bg-[#0F1521]/60 transition-colors">
+              <div key={emp.id} className="p-3.5 flex items-center justify-between gap-3 hover:bg-[#0A0F1A]/60 transition-colors">
                 <div className="flex items-center gap-2.5 min-w-0">
                   <span className={`w-6 h-6 text-xs font-black flex items-center justify-center shrink-0 ${
-                    rank === 1 ? 'bg-[#0057FF] text-white' : 'bg-[#0F1521] border border-[#232D3F] text-[#8B95A5]'
+                    rank === 1 ? 'bg-[#0057FF] text-white' : 'bg-[#0A0F1A] border border-[#1E293B] text-[#8B95A5]'
                   }`}>
                     #{rank}
                   </span>
                   <img
                     src={emp.avatar}
                     alt={emp.name}
-                    className="w-9 h-9 rounded-none object-cover border border-[#232D3F] shrink-0"
+                    className="w-9 h-9 rounded-none object-cover border border-[#1E293B] shrink-0"
                   />
                   <div className="min-w-0">
                     <div className="font-extrabold uppercase italic text-white text-xs truncate">
@@ -210,7 +210,7 @@ export default function LeaderboardPage() {
                     <div className="text-[10px] text-[#8B95A5] truncate">
                       {emp.role}
                     </div>
-                    <span className="inline-block px-1.5 py-0.2 bg-[#0F1521] border border-[#232D3F] text-[9px] font-bold uppercase text-[#8B95A5] mt-1">
+                    <span className="inline-block px-1.5 py-0.2 bg-[#0A0F1A] border border-[#1E293B] text-[9px] font-bold uppercase text-[#8B95A5] mt-1">
                       {emp.badge}
                     </span>
                   </div>
@@ -235,7 +235,7 @@ export default function LeaderboardPage() {
         {/* 2. Desktop Full Table View (Visible on >= 640px) */}
         <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-[#0F1521] border-b border-[#232D3F] text-[#8B95A5] text-[10px] font-black uppercase tracking-wider">
+            <thead className="bg-[#0A0F1A] border-b border-[#1E293B] text-[#8B95A5] text-[10px] font-black uppercase tracking-wider">
               <tr>
                 <th className="px-5 py-3 w-16">RANK</th>
                 <th className="px-5 py-3">NAMA KARYAWAN</th>
@@ -246,7 +246,7 @@ export default function LeaderboardPage() {
                 <th className="px-5 py-3 text-right">TOTAL HADIAH</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#232D3F]">
+            <tbody className="divide-y divide-[#1E293B]">
               {filteredLeaderboard.map((emp, index) => {
                 const rank = index + 1;
                 return (

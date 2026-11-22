@@ -98,8 +98,8 @@ export default function BountyDetailPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Main Header Card (High-Contrast Obsidian & Cobalt) */}
-      <div className="bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] p-6 sm:p-8 mb-8 rounded-none">
+      {/* Main Header Card (High-Contrast Cobalt & Obsidian) */}
+      <div className="bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-b-4 border-b-[#0057FF] p-6 sm:p-8 mb-8 rounded-none">
         <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
           <div className="space-y-3 max-w-3xl">
             <div className="flex items-center gap-2 flex-wrap text-xs">
@@ -124,7 +124,7 @@ export default function BountyDetailPage({ params }: PageProps) {
           </div>
 
           {/* Reward & Action Box */}
-          <div className="lg:w-80 flex-shrink-0 flex flex-col justify-between p-5 bg-[#0F1521] border border-[#232D3F] rounded-none">
+          <div className="lg:w-80 flex-shrink-0 flex flex-col justify-between p-5 bg-[#0A0F1A] border border-[#1E293B] rounded-none">
             <div className="space-y-3">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#8B95A5] block">
@@ -138,7 +138,7 @@ export default function BountyDetailPage({ params }: PageProps) {
                 </span>
               </div>
 
-              <div className="pt-3 border-t border-[#232D3F] space-y-1.5 text-xs text-[#8B95A5]">
+              <div className="pt-3 border-t border-[#1E293B] space-y-1.5 text-xs text-[#8B95A5]">
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 font-bold uppercase text-[10px]">
                     <Calendar className="w-3.5 h-3.5 text-[#0057FF]" /> DEADLINE:
@@ -165,14 +165,14 @@ export default function BountyDetailPage({ params }: PageProps) {
                   KIRIM KARYA
                 </button>
               ) : (
-                <div className="p-2.5 text-center bg-[#060A13] border border-[#232D3F] text-xs font-bold uppercase text-[#8B95A5] rounded-none">
+                <div className="p-2.5 text-center bg-[#060A13] border border-[#1E293B] text-xs font-bold uppercase text-[#8B95A5] rounded-none">
                   PENERIMAAN KARYA DITUTUP
                 </div>
               )}
 
               {/* Admin status switcher */}
               {role === 'admin' && (
-                <div className="mt-3 pt-3 border-t border-[#232D3F]">
+                <div className="mt-3 pt-3 border-t border-[#1E293B]">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-[#8B95A5] mb-1.5">
                     MANAJEMEN STATUS:
                   </div>
@@ -184,7 +184,7 @@ export default function BountyDetailPage({ params }: PageProps) {
                         className={`px-2 py-1 text-[10px] font-extrabold uppercase rounded-none transition-colors border ${
                           bounty.status === st
                             ? 'bg-[#0057FF] text-white border-[#0057FF]'
-                            : 'bg-[#0B0F17] text-[#8B95A5] border-[#232D3F] hover:text-white'
+                            : 'bg-[#0A0F1A] text-[#8B95A5] border-[#1E293B] hover:text-white'
                         }`}
                       >
                         {st}
@@ -272,7 +272,7 @@ export default function BountyDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
             {/* Objectives */}
-            <div className="p-6 bg-[#0B0F17] border border-[#232D3F] rounded-none">
+            <div className="p-6 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] rounded-none">
               <h3 className="text-sm font-extrabold uppercase italic tracking-tight text-white mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 bg-[#0057FF]" />
                 TUJUAN & EKSPEKTASI SOLUSI
@@ -288,7 +288,7 @@ export default function BountyDetailPage({ params }: PageProps) {
             </div>
 
             {/* Assessment Criteria Matrix */}
-            <div className="p-6 bg-[#0B0F17] border border-[#232D3F] rounded-none">
+            <div className="p-6 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] rounded-none">
               <h3 className="text-sm font-extrabold uppercase italic tracking-tight text-white mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 bg-[#0057FF]" />
                 KRITERIA PENILAIAN
@@ -297,7 +297,7 @@ export default function BountyDetailPage({ params }: PageProps) {
                 {bounty.criteria.map((item, i) => (
                   <div
                     key={i}
-                    className="p-3.5 bg-[#0F1521] border border-[#232D3F] rounded-none"
+                    className="p-3.5 bg-[#0A0F1A] border border-[#1E293B] rounded-none"
                   >
                     <div className="flex items-center justify-between mb-1 text-xs">
                       <span className="font-bold uppercase text-white">
@@ -324,7 +324,7 @@ export default function BountyDetailPage({ params }: PageProps) {
 
           {/* Right Column: Deliverables & References */}
           <div className="space-y-6">
-            <div className="p-5 bg-[#0B0F17] border border-[#232D3F] rounded-none">
+            <div className="p-5 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] rounded-none">
               <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
                 OUTPUT YANG DIHARAPKAN
               </h3>
@@ -332,7 +332,7 @@ export default function BountyDetailPage({ params }: PageProps) {
                 {bounty.deliverables.map((del, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-2 p-2.5 bg-[#0F1521] border border-[#232D3F] text-xs text-[#8B95A5] font-medium rounded-none"
+                    className="flex items-start gap-2 p-2.5 bg-[#0A0F1A] border border-[#1E293B] text-xs text-[#8B95A5] font-medium rounded-none"
                   >
                     <span className="w-4 h-4 bg-[#0057FF] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
                       {i + 1}
@@ -343,7 +343,7 @@ export default function BountyDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="p-5 bg-[#0B0F17] border border-[#232D3F] rounded-none">
+            <div className="p-5 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] rounded-none">
               <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
                 REFERENSI PENDUKUNG
               </h3>

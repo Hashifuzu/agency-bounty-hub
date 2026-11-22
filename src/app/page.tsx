@@ -77,9 +77,9 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* 2. Quick Stats: 4 Flat Obsidian Cards (2x2 on mobile, 4 columns on desktop) */}
+        {/* 2. Quick Stats: 4 Flat Obsidian Cards (bg-[#0E1420]/85 backdrop-blur-sm, border 1px solid #1E293B) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-6 sm:mb-8">
-          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+          <div className="p-3 sm:p-4 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-r-4 border-r-[#0057FF] rounded-none">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
               HADIAH AKTIF
             </span>
@@ -88,7 +88,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+          <div className="p-3 sm:p-4 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-r-4 border-r-[#0057FF] rounded-none">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
               SAYEMBARA BUKA
             </span>
@@ -97,7 +97,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+          <div className="p-3 sm:p-4 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-r-4 border-r-[#0057FF] rounded-none">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
               KARYA MASUK
             </span>
@@ -106,7 +106,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+          <div className="p-3 sm:p-4 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-r-4 border-r-[#0057FF] rounded-none">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
               ASET TERADOPSI
             </span>
@@ -135,7 +135,7 @@ export default function HomePage() {
             ))}
           </div>
         ) : (
-          <div className="py-16 text-center bg-[#0B0F17] border border-[#232D3F] p-8 rounded-none">
+          <div className="py-16 text-center bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] p-8 rounded-none">
             <Inbox className="w-10 h-10 text-[#8B95A5] mx-auto mb-3" />
             <h3 className="text-base font-extrabold uppercase italic text-white">
               TIDAK ADA SAYEMBARA YANG COCOK

@@ -28,7 +28,7 @@ export default function BountyCard({ bounty }: Props) {
   return (
     <Link
       href={`/bounty/${bounty.id}`}
-      className="group relative flex flex-col justify-between p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] hover:border-[#0057FF] transition-all rounded-none"
+      className="group relative flex flex-col justify-between p-5 bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] border-b-4 border-b-[#0057FF] hover:border-[#0057FF] transition-all rounded-none"
     >
       <div>
         {/* Top Badges Row */}
@@ -68,7 +68,7 @@ export default function BountyCard({ bounty }: Props) {
       </div>
 
       {/* Bottom Row: Nominal Hadiah & Sisa Waktu */}
-      <div className="mt-5 pt-3.5 border-t border-[#232D3F] flex items-center justify-between">
+      <div className="mt-5 pt-3.5 border-t border-[#1E293B] flex items-center justify-between">
         <div>
           <span className="text-[10px] uppercase font-bold text-[#8B95A5] block tracking-wider">
             TOTAL HADIAH

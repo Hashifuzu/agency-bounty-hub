@@ -45,7 +45,7 @@ export default function CategoryFilter({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Cari sayembara..."
-            className="w-full pl-9 pr-8 py-2 text-base sm:text-xs md:text-sm bg-[#0F1521] border border-[#232D3F] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] transition-colors rounded-none"
+            className="w-full pl-9 pr-8 py-2 text-base sm:text-xs md:text-sm bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] transition-colors rounded-none"
           />
           {searchQuery && (
             <button
@@ -58,7 +58,7 @@ export default function CategoryFilter({
         </div>
 
         {/* Status Segmented Control (Grid on mobile, flex on tablet/desktop) */}
-        <div className="grid grid-cols-4 sm:flex items-center bg-[#0B0F17] border border-[#232D3F] p-0.5">
+        <div className="grid grid-cols-4 sm:flex items-center bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] p-0.5">
           {STATUS_ITEMS.map((st) => {
             const isSelected = selectedStatus === st;
             return (
@@ -90,15 +90,15 @@ export default function CategoryFilter({
               onClick={() => onSelectCategory(cat)}
               className={`flex items-center gap-1.5 px-3 py-2 sm:py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors rounded-none border shrink-0 ${
                 isSelected
-                  ? 'bg-[#0C1C3D] border-2 border-[#0057FF] text-white'
-                  : 'bg-[#0B0F17] border-[#232D3F] hover:border-[#0057FF] text-[#8B95A5] hover:text-white'
+                  ? 'bg-[#0057FF]/25 border-2 border-[#0057FF] text-white'
+                  : 'bg-[#0E1420]/85 backdrop-blur-sm border border-[#1E293B] hover:border-[#0057FF] text-[#8B95A5] hover:text-white'
               }`}
             >
               <span>{cat}</span>
               {count > 0 && (
                 <span
                   className={`text-[10px] px-1.5 py-0.2 font-extrabold ${
-                    isSelected ? 'bg-[#0057FF] text-white' : 'bg-[#0F1521] text-[#8B95A5]'
+                    isSelected ? 'bg-[#0057FF] text-white' : 'bg-[#0E1420] text-[#8B95A5]'
                   }`}
                 >
                   {count}

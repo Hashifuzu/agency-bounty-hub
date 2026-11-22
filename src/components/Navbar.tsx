@@ -28,8 +28,8 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Navbar: Full-Width Solid #0057FF */}
-      <header className="sticky top-0 z-40 w-full h-16 bg-[#0057FF] text-white shadow-md border-b-2 border-white/20 select-none">
+      {/* Top Navbar: Full-Width Solid #0057FF with crisp 1px solid rgba(255,255,255,0.2) bottom border */}
+      <header className="sticky top-0 z-40 w-full h-16 bg-[#0057FF] text-white shadow-md border-b border-white/20 select-none">
         <div className="max-w-7xl mx-auto h-full px-3 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Left: Logo inside #060A13 box with thin white border + subtitle */}
           <div className="flex items-center gap-2 sm:gap-4 min-w-0">
