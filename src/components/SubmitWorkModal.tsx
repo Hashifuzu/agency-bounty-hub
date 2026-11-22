@@ -89,31 +89,32 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in">
-      <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-none bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] p-6 text-white shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-xs animate-in fade-in">
+      <div className="relative w-full max-w-xl max-h-[92dvh] overflow-y-auto rounded-none bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] p-4 sm:p-6 text-white shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-[#232D3F]">
           <div>
             <div className="inline-block bg-[#0057FF] text-white text-[10px] font-extrabold uppercase px-1.5 py-0.5 mb-1 tracking-wider">
               KIRIM INOVASI
             </div>
-            <h3 className="text-base font-extrabold uppercase italic tracking-tight text-white">
+            <h3 className="text-sm sm:text-base font-extrabold uppercase italic tracking-tight text-white">
               FORMULIR SUBMISSION KARYA
             </h3>
-            <p className="text-xs text-[#8B95A5] mt-0.5 line-clamp-1">
+            <p className="text-[11px] sm:text-xs text-[#8B95A5] mt-0.5 line-clamp-1">
               Untuk: {bounty.title}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-none border border-[#232D3F] bg-[#0F1521] flex items-center justify-center text-[#8B95A5] hover:text-white hover:border-[#0057FF] transition-colors"
+            aria-label="Tutup modal"
+            className="w-8 h-8 rounded-none border border-[#232D3F] bg-[#0F1521] flex items-center justify-center text-[#8B95A5] hover:text-white hover:border-[#0057FF] transition-colors shrink-0 ml-2"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs sm:text-sm">
+        <form onSubmit={handleSubmit} className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-xs sm:text-sm">
           {/* Work Title */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-tight text-white mb-1">
@@ -125,7 +126,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Contoh: AutoSlide v2: Script Otomasi Slides Agensi"
-              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
             />
           </div>
 
@@ -140,7 +141,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
                 required
                 value={authorName}
                 onChange={(e) => setAuthorName(e.target.value)}
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
               />
             </div>
             <div>
@@ -152,7 +153,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
                 required
                 value={authorRole}
                 onChange={(e) => setAuthorRole(e.target.value)}
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
               />
             </div>
             <div>
@@ -164,7 +165,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
                 required
                 value={authorDepartment}
                 onChange={(e) => setAuthorDepartment(e.target.value)}
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
               />
             </div>
           </div>
@@ -180,7 +181,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
               value={impactDescription}
               onChange={(e) => setImpactDescription(e.target.value)}
               placeholder="Jelaskan bagaimana inovasi ini menghemat jam kerja tim atau mempercepat project klien..."
-              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
             />
           </div>
 
@@ -193,7 +194,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
               <button
                 type="button"
                 onClick={handleAddLink}
-                className="text-xs text-[#0057FF] hover:text-white flex items-center gap-1 font-bold uppercase"
+                className="text-xs text-[#0057FF] hover:text-white flex items-center gap-1 font-bold uppercase py-1"
               >
                 <Plus className="w-3.5 h-3.5" /> Tambah Link
               </button>
@@ -205,21 +206,21 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
                     type="text"
                     value={link.label}
                     onChange={(e) => handleUpdateLink(idx, 'label', e.target.value)}
-                    placeholder="Label (Figma, Loom, Repo)"
-                    className="w-1/3 px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white focus:outline-none focus:border-[#0057FF]"
+                    placeholder="Label (Figma, Repo)"
+                    className="w-1/3 px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
                   />
                   <input
                     type="url"
                     value={link.url}
                     onChange={(e) => handleUpdateLink(idx, 'url', e.target.value)}
                     placeholder="https://..."
-                    className="flex-1 px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white focus:outline-none focus:border-[#0057FF]"
+                    className="flex-1 px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
                   />
                   {links.length > 1 && (
                     <button
                       type="button"
                       onClick={() => handleRemoveLink(idx)}
-                      className="text-[#8B95A5] hover:text-rose-500 text-xs p-1 font-bold"
+                      className="text-[#8B95A5] hover:text-rose-500 text-xs p-2 font-bold shrink-0"
                     >
                       ✕
                     </button>
@@ -234,7 +235,7 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
             <label className="block text-xs font-bold uppercase tracking-tight text-white mb-1.5">
               Pilih Preview / Banner
             </label>
-            <div className="flex items-center gap-2 overflow-x-auto pb-1">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 touch-pan-x scrollbar-none">
               {PRESET_PREVIEWS.map((img, i) => (
                 <button
                   type="button"
@@ -267,22 +268,22 @@ export default function SubmitWorkModal({ isOpen, onClose, bounty }: Props) {
               value={tagsInput}
               onChange={(e) => setTagsInput(e.target.value)}
               placeholder="Template, Motion, Figma, Automation"
-              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white focus:outline-none focus:border-[#0057FF]"
+              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
             />
           </div>
 
           {/* Submit Actions */}
-          <div className="pt-3 border-t border-[#232D3F] flex items-center justify-end gap-2">
+          <div className="pt-3 border-t border-[#232D3F] flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-none text-xs font-bold uppercase text-[#8B95A5] hover:text-white bg-[#0F1521] border border-[#232D3F]"
+              className="w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-none text-xs font-bold uppercase text-[#8B95A5] hover:text-white bg-[#0F1521] border border-[#232D3F] text-center"
             >
               Batal
             </button>
             <button
               type="submit"
-              className="px-4 py-2 rounded-none text-xs font-bold uppercase bg-[#0057FF] hover:bg-blue-600 text-white transition-colors"
+              className="w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-none text-xs font-bold uppercase bg-[#0057FF] hover:bg-blue-600 text-white transition-colors text-center"
             >
               Kirim Karya
             </button>

@@ -54,16 +54,16 @@ export default function HallOfFamePage() {
   ];
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <div className="min-h-screen max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-16">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#0057FF] text-white text-[10px] font-black uppercase tracking-wider mb-2 rounded-none">
           PERPUSTAKAAN ASET INTERNAL
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
+        <h1 className="text-xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
           ARSIP KARYA & ASET AGENSI
         </h1>
-        <p className="text-sm text-[#8B95A5] mt-1 font-normal">
+        <p className="text-xs sm:text-sm text-[#8B95A5] mt-1 font-normal leading-relaxed">
           Koleksi template, script otomatisasi, dan SOP terverifikasi yang siap dipakai seluruh tim agensi.
         </p>
       </div>
@@ -71,26 +71,26 @@ export default function HallOfFamePage() {
       {/* Search & Filter Controls */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
         {/* Search */}
-        <div className="relative flex-1 max-w-sm">
+        <div className="relative flex-1 sm:max-w-xs md:max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8B95A5]" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Cari aset (Figma, Slide, Script)..."
-            className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm bg-[#0F1521] border border-[#232D3F] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] rounded-none"
+            className="w-full pl-9 pr-3 py-2 text-base sm:text-xs md:text-sm bg-[#0F1521] border border-[#232D3F] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] rounded-none"
           />
         </div>
 
-        {/* Category Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+        {/* Category Pills (Touch-pan-x) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none touch-pan-x -mx-1 px-1">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors rounded-none border ${
+                className={`px-3 py-2 sm:py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors rounded-none border shrink-0 ${
                   isSelected
                     ? 'bg-[#0C1C3D] border-2 border-[#0057FF] text-white'
                     : 'bg-[#0B0F17] border-[#232D3F] hover:border-[#0057FF] text-[#8B95A5] hover:text-white'

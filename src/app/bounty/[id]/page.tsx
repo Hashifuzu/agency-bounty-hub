@@ -68,29 +68,30 @@ export default function BountyDetailPage({ params }: PageProps) {
   const deadlineDate = formatDate(bounty.deadline);
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <div className="min-h-screen max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-24 lg:pb-10">
       {/* Back button */}
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-4 sm:mb-6 flex items-center justify-between gap-2">
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#8B95A5] hover:text-white transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>KEMBALI KE DAFTAR SAYEMBARA</span>
+          <span className="hidden sm:inline">KEMBALI KE DAFTAR SAYEMBARA</span>
+          <span className="sm:hidden">KEMBALI</span>
         </Link>
 
         {/* Status Badge */}
         <div>
           {bounty.status === 'Open' ? (
-            <span className="px-2.5 py-1 text-xs font-black uppercase tracking-wider bg-[#0057FF] text-white rounded-none">
+            <span className="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#0057FF] text-white rounded-none">
               STATUS: OPEN
             </span>
           ) : bounty.status === 'In Review' ? (
-            <span className="px-2.5 py-1 text-xs font-black uppercase tracking-wider bg-[#D97706] text-white rounded-none">
+            <span className="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#D97706] text-white rounded-none">
               STATUS: IN REVIEW
             </span>
           ) : (
-            <span className="px-2.5 py-1 text-xs font-black uppercase tracking-wider bg-[#334155] text-white rounded-none">
+            <span className="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#334155] text-white rounded-none">
               STATUS: CLOSED
             </span>
           )}
@@ -239,30 +240,30 @@ export default function BountyDetailPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#232D3F] mb-6">
+      {/* Tabs (Full-width 2-column grid on mobile, flex on desktop) */}
+      <div className="grid grid-cols-2 sm:flex items-center gap-1 sm:gap-2 border-b border-[#232D3F] mb-6">
         <button
           onClick={() => setActiveTab('brief')}
-          className={`flex items-center gap-2 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 rounded-none ${
+          className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 rounded-none text-center ${
             activeTab === 'brief'
               ? 'border-[#0057FF] text-white bg-[#0C1C3D]'
               : 'border-transparent text-[#8B95A5] hover:text-white'
           }`}
         >
           <FileText className="w-3.5 h-3.5" />
-          <span>BRIEF & PENILAIAN</span>
+          <span className="truncate">BRIEF & PENILAIAN</span>
         </button>
 
         <button
           onClick={() => setActiveTab('submissions')}
-          className={`flex items-center gap-2 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 rounded-none ${
+          className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 rounded-none text-center ${
             activeTab === 'submissions'
               ? 'border-[#0057FF] text-white bg-[#0C1C3D]'
               : 'border-transparent text-[#8B95A5] hover:text-white'
           }`}
         >
           <Users className="w-3.5 h-3.5" />
-          <span>KARYA MASUK ({bountySubmissions.length})</span>
+          <span className="truncate">KARYA ({bountySubmissions.length})</span>
         </button>
       </div>
 
@@ -494,6 +495,27 @@ export default function BountyDetailPage({ params }: PageProps) {
               Belum ada karya yang masuk untuk sayembara ini.
             </div>
           )}
+        </div>
+      )}
+
+      {/* Mobile Sticky Action Bar */}
+      {bounty.status === 'Open' && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#0B0F17]/95 backdrop-blur-md border-t-2 border-[#0057FF] p-3 px-4 flex items-center justify-between shadow-2xl">
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#8B95A5] block">
+              TOTAL HADIAH
+            </span>
+            <div className="text-sm font-black text-white">
+              {bounty.rewardCash}
+            </div>
+          </div>
+          <button
+            onClick={() => setIsSubmitModalOpen(true)}
+            className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-black uppercase tracking-wider bg-[#0057FF] hover:bg-blue-600 text-white rounded-none shadow-md active:bg-blue-700 transition-colors"
+          >
+            <Send className="w-3.5 h-3.5" />
+            <span>KIRIM KARYA</span>
+          </button>
         </div>
       )}
 

@@ -29,24 +29,24 @@ export default function Navbar() {
   return (
     <>
       {/* Top Navbar: Full-Width Solid #0057FF */}
-      <header className="sticky top-0 z-40 w-full h-16 bg-[#0057FF] text-white shadow-md border-b-2 border-white/20">
-        <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <header className="sticky top-0 z-40 w-full h-16 bg-[#0057FF] text-white shadow-md border-b-2 border-white/20 select-none">
+        <div className="max-w-7xl mx-auto h-full px-3 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Left: Logo inside #060A13 box with thin white border + subtitle */}
-          <div className="flex items-center gap-3 sm:gap-4">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="px-3 py-1.5 bg-[#060A13] border border-white text-white font-extrabold uppercase tracking-tight text-sm sm:text-base flex items-center gap-1.5 shadow-xs">
-                <span className="w-2 h-2 bg-[#0057FF] inline-block" />
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+            <Link href="/" className="flex items-center gap-2 group shrink-0">
+              <div className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#060A13] border border-white text-white font-extrabold uppercase tracking-tight text-xs sm:text-base flex items-center gap-1.5 shadow-xs">
+                <span className="w-2 h-2 bg-[#0057FF] inline-block shrink-0" />
                 <span>KREASIHUB</span>
               </div>
             </Link>
-            <span className="hidden md:inline-block text-[11px] font-bold uppercase tracking-wider text-white/90 border-l border-white/30 pl-3">
+            <span className="hidden md:inline-block text-[11px] font-bold uppercase tracking-wider text-white/90 border-l border-white/30 pl-3 truncate">
               SISTEM SAYEMBARA & INOVASI AGENSI
             </span>
           </div>
 
-          {/* Right Navigation & Tools */}
+          {/* Right Navigation & Tools (Desktop) */}
           <div className="hidden lg:flex items-center gap-2">
-            {/* Desktop Navigation Links (Black #060A13 boxes with white borders) */}
+            {/* Desktop Navigation Links */}
             <nav className="flex items-center gap-1.5">
               {navLinks.map((item) => {
                 const isActive = pathname === item.href;
@@ -112,13 +112,13 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile menu trigger */}
+          {/* Mobile Navigation Controls */}
           <div className="flex items-center gap-2 lg:hidden">
-            {/* Mobile Role Switcher */}
-            <div className="flex items-center bg-[#060A13] border border-white p-0.5 text-[10px]">
+            {/* Mobile Role Switcher (Optimized touch target) */}
+            <div className="flex items-center bg-[#060A13] border border-white p-0.5">
               <button
                 onClick={() => setRole('employee')}
-                className={`px-2 py-0.5 font-bold uppercase ${
+                className={`px-2.5 py-1 text-[11px] font-bold uppercase transition-colors ${
                   role === 'employee' ? 'bg-[#0057FF] text-white' : 'text-[#8B95A5]'
                 }`}
               >
@@ -126,7 +126,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => setRole('admin')}
-                className={`px-2 py-0.5 font-bold uppercase ${
+                className={`px-2.5 py-1 text-[11px] font-bold uppercase transition-colors ${
                   role === 'admin' ? 'bg-[#0057FF] text-white' : 'text-[#8B95A5]'
                 }`}
               >
@@ -134,43 +134,50 @@ export default function Navbar() {
               </button>
             </div>
 
+            {/* Hamburger Button (44px touch target) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-8 h-8 bg-[#060A13] border border-white flex items-center justify-center text-white"
+              aria-label="Buka menu navigasi"
+              className="w-9 h-9 bg-[#060A13] border border-white flex items-center justify-center text-white active:bg-white active:text-[#0057FF] transition-colors"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
+        {/* Mobile Dropdown Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-b-2 border-white bg-[#060A13] p-4 space-y-2">
+          <div className="lg:hidden border-b-2 border-white bg-[#060A13] p-4 space-y-2 shadow-2xl animate-in slide-in-from-top-2 duration-150">
+            <div className="text-[10px] font-black uppercase tracking-wider text-[#8B95A5] mb-1">
+              NAVIGASI UTAMA
+            </div>
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 text-xs font-bold uppercase tracking-wider border ${
+                className={`flex items-center justify-between px-3.5 py-2.5 text-xs font-bold uppercase tracking-wider border transition-colors ${
                   pathname === item.href
                     ? 'bg-[#0057FF] text-white border-white'
-                    : 'bg-[#0B0F17] text-white border-[#232D3F]'
+                    : 'bg-[#0B0F17] text-white border-[#232D3F] active:border-[#0057FF]'
                 }`}
               >
-                {item.name}
+                <span>{item.name}</span>
+                <span className="text-[10px] text-white/60">→</span>
               </Link>
             ))}
 
+            {/* Admin Action in Mobile Menu */}
             {role === 'admin' && (
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setIsCreateModalOpen(true);
                 }}
-                className="w-full mt-2 py-2 px-3 text-xs font-bold uppercase tracking-wider bg-[#0057FF] text-white border border-white flex items-center justify-center gap-1.5"
+                className="w-full mt-3 py-3 px-3.5 text-xs font-black uppercase tracking-wider bg-[#0057FF] text-white border-2 border-white flex items-center justify-center gap-2 shadow-md active:bg-blue-600 transition-colors"
               >
                 <Plus className="w-4 h-4" />
-                BUAT SAYEMBARA BARU
+                <span>+ BUAT SAYEMBARA BARU</span>
               </button>
             )}
           </div>

@@ -86,31 +86,32 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in">
-      <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-none bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] p-6 text-white shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-xs animate-in fade-in">
+      <div className="relative w-full max-w-xl max-h-[92dvh] overflow-y-auto rounded-none bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#0057FF] p-4 sm:p-6 text-white shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-[#232D3F]">
           <div>
             <div className="inline-block bg-[#0057FF] text-white text-[10px] font-extrabold uppercase px-1.5 py-0.5 mb-1 tracking-wider">
               FORMULIR MANAJEMEN
             </div>
-            <h3 className="text-base font-extrabold uppercase italic tracking-tight text-white">
+            <h3 className="text-sm sm:text-base font-extrabold uppercase italic tracking-tight text-white">
               BUAT SAYEMBARA BARU
             </h3>
-            <p className="text-xs text-[#8B95A5] mt-0.5">
+            <p className="text-[11px] sm:text-xs text-[#8B95A5] mt-0.5">
               Buka tantangan inovasi untuk memecahkan bottleneck operasional agensi.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-none border border-[#232D3F] bg-[#0F1521] flex items-center justify-center text-[#8B95A5] hover:text-white hover:border-[#0057FF] transition-colors"
+            aria-label="Tutup modal"
+            className="w-8 h-8 rounded-none border border-[#232D3F] bg-[#0F1521] flex items-center justify-center text-[#8B95A5] hover:text-white hover:border-[#0057FF] transition-colors shrink-0 ml-2"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs sm:text-sm">
+        <form onSubmit={handleSubmit} className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-xs sm:text-sm">
           {/* Title */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-tight text-white mb-1">
@@ -122,7 +123,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Contoh: Otomasi Export Carousel Instagram ke Form Klien"
-              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
             />
           </div>
 
@@ -135,7 +136,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value as Category)}
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
               >
                 {CATEGORIES.map((c) => (
                   <option key={c} value={c} className="bg-[#0B0F17] text-white">
@@ -153,7 +154,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
                 placeholder="Misal: Creative & Production"
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
               />
             </div>
           </div>
@@ -170,7 +171,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
                 value={rewardCash}
                 onChange={(e) => setRewardCash(e.target.value)}
                 placeholder="Rp 2.000.000"
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
               />
             </div>
             <div>
@@ -182,7 +183,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
                 value={rewardPoints}
                 onChange={(e) => setRewardPoints(Number(e.target.value))}
                 placeholder="250"
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
               />
             </div>
             <div>
@@ -194,7 +195,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
                 required
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white focus:outline-none focus:border-[#0057FF]"
+                className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white focus:outline-none focus:border-[#0057FF]"
               />
             </div>
           </div>
@@ -210,7 +211,7 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
               value={brief}
               onChange={(e) => setBrief(e.target.value)}
               placeholder="Jelaskan masalah yang dihadapi dan hasil yang diharapkan..."
-              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs sm:text-sm text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+              className="w-full px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
             />
           </div>
 
@@ -230,31 +231,31 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
                     handleAddDeliverable();
                   }
                 }}
-                placeholder="Tambah output (misal: File .MOGRT, template Notion)"
-                className="flex-1 px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
+                placeholder="Tambah output (misal: File .MOGRT)"
+                className="flex-1 px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] text-base sm:text-xs text-white placeholder:text-[#8B95A5]/60 focus:outline-none focus:border-[#0057FF]"
               />
               <button
                 type="button"
                 onClick={handleAddDeliverable}
-                className="px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] hover:border-[#0057FF] text-xs font-bold uppercase text-white"
+                className="px-3 py-2 rounded-none bg-[#0F1521] border border-[#232D3F] hover:border-[#0057FF] text-xs font-bold uppercase text-white shrink-0"
               >
                 + Tambah
               </button>
             </div>
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 max-h-32 overflow-y-auto">
               {deliverables.map((item, idx) => (
                 <div
                   key={idx}
                   className="flex items-center justify-between px-3 py-1.5 rounded-none bg-[#0F1521] border border-[#232D3F] text-xs text-[#8B95A5]"
                 >
-                  <span className="flex items-center gap-2 text-white">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#0057FF]" />
-                    {item}
+                  <span className="flex items-center gap-2 text-white truncate mr-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#0057FF] shrink-0" />
+                    <span className="truncate">{item}</span>
                   </span>
                   <button
                     type="button"
                     onClick={() => handleRemoveDeliverable(idx)}
-                    className="text-[#8B95A5] hover:text-rose-500 font-bold"
+                    className="text-[#8B95A5] hover:text-rose-500 font-bold p-1"
                   >
                     ✕
                   </button>
@@ -264,17 +265,17 @@ export default function CreateBountyModal({ isOpen, onClose }: Props) {
           </div>
 
           {/* Actions */}
-          <div className="pt-3 border-t border-[#232D3F] flex items-center justify-end gap-2">
+          <div className="pt-3 border-t border-[#232D3F] flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-none text-xs font-bold uppercase text-[#8B95A5] hover:text-white bg-[#0F1521] border border-[#232D3F]"
+              className="w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-none text-xs font-bold uppercase text-[#8B95A5] hover:text-white bg-[#0F1521] border border-[#232D3F] text-center"
             >
               Batal
             </button>
             <button
               type="submit"
-              className="px-4 py-2 rounded-none text-xs font-bold uppercase bg-[#0057FF] hover:bg-blue-600 text-white transition-colors"
+              className="w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-none text-xs font-bold uppercase bg-[#0057FF] hover:bg-blue-600 text-white transition-colors text-center"
             >
               Publikasikan Sayembara
             </button>

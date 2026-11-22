@@ -51,17 +51,17 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-        {/* 1. Page Header (Left-aligned, concise, sharp) */}
+      <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+        {/* 1. Page Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#0057FF] text-white text-[10px] font-black uppercase tracking-wider mb-2 rounded-none">
               AGENSI INOVASI // HUB
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
+            <h1 className="text-xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
               SAYEMBARA INTERNAL
             </h1>
-            <p className="text-sm text-[#8B95A5] mt-1 font-normal">
+            <p className="text-xs sm:text-sm text-[#8B95A5] mt-1 font-normal leading-relaxed">
               Kirimkan solusi, otomasi, atau template kerja untuk efisiensi operasional agensi.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
           {role === 'admin' && (
             <button
               onClick={() => setIsCreateModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0057FF] text-white text-xs font-black uppercase tracking-wider hover:bg-blue-600 transition-colors border border-white/20 rounded-none shadow-xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#0057FF] text-white text-xs font-black uppercase tracking-wider hover:bg-blue-600 transition-colors border border-white/20 rounded-none shadow-xs"
             >
               <Plus className="w-4 h-4" />
               <span>+ BUAT SAYEMBARA BARU</span>
@@ -77,46 +77,46 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* 2. Quick Stats: 4 Flat Obsidian Cards with thick 4px #0057FF accent */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
-          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
-              TOTAL HADIAH AKTIF
+        {/* 2. Quick Stats: 4 Flat Obsidian Cards (2x2 on mobile, 4 columns on desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-6 sm:mb-8">
+          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
+              HADIAH AKTIF
             </span>
-            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+            <div className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white mt-1 truncate">
               Rp 9.750.000
             </div>
           </div>
 
-          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
-              SAYEMBARA TERBUKA
+          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
+              SAYEMBARA BUKA
             </span>
-            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+            <div className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white mt-1">
               {activeBountiesCount}
             </div>
           </div>
 
-          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
-              KARYA TERKUMPUL
+          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
+              KARYA MASUK
             </span>
-            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+            <div className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white mt-1">
               {totalSubmissionsCount}
             </div>
           </div>
 
-          <div className="p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#8B95A5] block">
-              INOVASI TERADOPSI
+          <div className="p-3 sm:p-4 bg-[#0B0F17] border border-[#232D3F] border-r-4 border-r-[#0057FF] rounded-none">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8B95A5] block truncate">
+              ASET TERADOPSI
             </span>
-            <div className="text-xl sm:text-2xl font-black tracking-tight text-white mt-1">
+            <div className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white mt-1">
               {adoptedAssetsCount}
             </div>
           </div>
         </div>
 
-        {/* 3. Filter Bar & Sayembara List */}
+        {/* 3. Search & Filter Bar */}
         <CategoryFilter
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
@@ -127,21 +127,21 @@ export default function HomePage() {
           categoryCounts={categoryCounts}
         />
 
-        {/* 4. Bounty Grid (3 Columns on Desktop) */}
+        {/* 4. Bounty Grid (1 column on mobile, 2 on tablet, 3 on desktop) */}
         {filteredBounties.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5">
             {filteredBounties.map((bounty) => (
               <BountyCard key={bounty.id} bounty={bounty} />
             ))}
           </div>
         ) : (
-          <div className="p-12 text-center bg-[#0B0F17] border border-[#232D3F] rounded-none">
-            <Inbox className="w-8 h-8 text-[#8B95A5] mx-auto mb-2" />
-            <h3 className="text-sm font-bold uppercase text-white">
-              TIDAK ADA SAYEMBARA DITEMUKAN
+          <div className="py-16 text-center bg-[#0B0F17] border border-[#232D3F] p-8 rounded-none">
+            <Inbox className="w-10 h-10 text-[#8B95A5] mx-auto mb-3" />
+            <h3 className="text-base font-extrabold uppercase italic text-white">
+              TIDAK ADA SAYEMBARA YANG COCOK
             </h3>
-            <p className="text-xs text-[#8B95A5] mt-1">
-              Coba sesuaikan kata kunci pencarian atau ganti filter kategori.
+            <p className="text-xs text-[#8B95A5] mt-1 max-w-sm mx-auto">
+              Coba sesuaikan kata kunci pencarian atau ubah filter kategori di atas.
             </p>
             <button
               onClick={() => {
@@ -149,15 +149,15 @@ export default function HomePage() {
                 setSelectedStatus('Semua Status');
                 setSearchQuery('');
               }}
-              className="mt-3 px-3 py-1.5 text-xs font-bold uppercase bg-[#0057FF] text-white hover:bg-blue-600 rounded-none transition-colors"
+              className="mt-4 px-3.5 py-2 bg-[#0F1521] border border-[#232D3F] hover:border-[#0057FF] text-xs font-bold uppercase text-white transition-colors rounded-none"
             >
-              RESET FILTER
+              Reset Filter
             </button>
           </div>
         )}
       </main>
 
-      {/* Create Bounty Modal */}
+      {/* Admin Create Modal */}
       <CreateBountyModal
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}

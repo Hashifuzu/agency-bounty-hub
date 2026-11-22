@@ -34,25 +34,64 @@ export default function LeaderboardPage() {
   const top3 = sortedLeaderboard[2];
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <div className="min-h-screen max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-16">
       {/* Page Header */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#0057FF] text-white text-[10px] font-black uppercase tracking-wider mb-2 rounded-none">
           PERINGKAT TALENTA INOVATIF
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
+        <h1 className="text-xl sm:text-3xl font-extrabold uppercase italic tracking-tight text-white">
           LEADERBOARD INOVATOR
         </h1>
-        <p className="text-sm text-[#8B95A5] mt-1 font-normal">
+        <p className="text-xs sm:text-sm text-[#8B95A5] mt-1 font-normal leading-relaxed">
           Apresiasi bagi karyawan paling kontributif dalam sayembara inovasi dan efisiensi operasional agensi.
         </p>
       </div>
 
-      {/* Top 3 Cards in High-Contrast Obsidian & Cobalt */}
+      {/* Top 3 Cards in High-Contrast Obsidian & Cobalt (Mobile order: 1 -> 2 -> 3) */}
       {!searchQuery && top1 && top2 && top3 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {/* Rank 2 */}
-          <div className="p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 mb-6 sm:mb-8">
+          {/* Rank 1 (Top Champion: First on Mobile, Center on Desktop) */}
+          <div className="order-1 md:order-2 p-5 bg-[#0C1C3D] border-2 border-[#0057FF] border-b-4 border-b-[#0057FF] rounded-none flex flex-col justify-between shadow-xs">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="w-6 h-6 bg-[#0057FF] text-white text-xs font-black flex items-center justify-center rounded-none">
+                  1
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#0057FF] bg-white px-2 py-0.5">
+                  TOP INOVATOR 👑
+                </span>
+              </div>
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src={top1.avatar}
+                  alt={top1.name}
+                  className="w-12 h-12 rounded-none object-cover border-2 border-[#0057FF]"
+                />
+                <div>
+                  <h3 className="text-base font-extrabold uppercase italic text-white">{top1.name}</h3>
+                  <p className="text-xs text-blue-200">{top1.role}</p>
+                </div>
+              </div>
+              <span className="inline-block px-2 py-0.5 bg-[#0057FF] text-white text-[11px] font-extrabold uppercase mb-4 rounded-none">
+                {top1.badge}
+              </span>
+            </div>
+
+            <div className="pt-3 border-t border-[#0057FF]/40 grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-blue-200 block">TOTAL POIN</span>
+                <strong className="text-lg font-black text-white">{top1.totalPoints} PTS</strong>
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-bold text-blue-200 block">KEMENANGAN</span>
+                <strong className="text-lg font-black text-white">{top1.winsCount}X JUARA</strong>
+              </div>
+            </div>
+          </div>
+
+          {/* Rank 2 (Second on Mobile, Left on Desktop) */}
+          <div className="order-2 md:order-1 p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="w-6 h-6 bg-[#0F1521] border border-[#232D3F] text-white text-xs font-black flex items-center justify-center rounded-none">
@@ -88,47 +127,8 @@ export default function LeaderboardPage() {
             </div>
           </div>
 
-          {/* Rank 1 (Top Champion with 4px #0057FF accent) */}
-          <div className="p-5 bg-[#0C1C3D] border-2 border-[#0057FF] border-b-4 border-b-[#0057FF] rounded-none flex flex-col justify-between shadow-xs">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="w-6 h-6 bg-[#0057FF] text-white text-xs font-black flex items-center justify-center rounded-none">
-                  1
-                </span>
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#0057FF] bg-white px-2 py-0.5">
-                  TOP INOVATOR
-                </span>
-              </div>
-              <div className="flex items-center gap-3 mb-3">
-                <img
-                  src={top1.avatar}
-                  alt={top1.name}
-                  className="w-12 h-12 rounded-none object-cover border-2 border-[#0057FF]"
-                />
-                <div>
-                  <h3 className="text-base font-extrabold uppercase italic text-white">{top1.name}</h3>
-                  <p className="text-xs text-blue-200">{top1.role}</p>
-                </div>
-              </div>
-              <span className="inline-block px-2 py-0.5 bg-[#0057FF] text-white text-[11px] font-extrabold uppercase mb-4 rounded-none">
-                {top1.badge}
-              </span>
-            </div>
-
-            <div className="pt-3 border-t border-[#0057FF]/40 grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <span className="text-[10px] uppercase font-bold text-blue-200 block">TOTAL POIN</span>
-                <strong className="text-lg font-black text-white">{top1.totalPoints} PTS</strong>
-              </div>
-              <div>
-                <span className="text-[10px] uppercase font-bold text-blue-200 block">KEMENANGAN</span>
-                <strong className="text-lg font-black text-white">{top1.winsCount}X JUARA</strong>
-              </div>
-            </div>
-          </div>
-
-          {/* Rank 3 */}
-          <div className="p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
+          {/* Rank 3 (Third on Mobile, Right on Desktop) */}
+          <div className="order-3 p-5 bg-[#0B0F17] border border-[#232D3F] border-b-4 border-b-[#8B95A5] rounded-none flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="w-6 h-6 bg-[#0F1521] border border-[#232D3F] text-white text-xs font-black flex items-center justify-center rounded-none">
@@ -166,11 +166,11 @@ export default function LeaderboardPage() {
         </div>
       )}
 
-      {/* Rankings Table */}
+      {/* Rankings Table & Mobile Card List */}
       <div className="bg-[#0B0F17] border border-[#232D3F] rounded-none overflow-hidden">
         {/* Table Search Header */}
-        <div className="p-4 border-b border-[#232D3F] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <h3 className="text-sm font-extrabold uppercase italic text-white">
+        <div className="p-3.5 sm:p-4 border-b border-[#232D3F] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <h3 className="text-xs sm:text-sm font-extrabold uppercase italic text-white">
             TABEL PERINGKAT LENGKAP
           </h3>
 
@@ -181,13 +181,59 @@ export default function LeaderboardPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari nama karyawan..."
-              className="w-full pl-8 pr-3 py-1.5 text-xs bg-[#0F1521] border border-[#232D3F] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] rounded-none"
+              className="w-full pl-8 pr-3 py-1.5 text-base sm:text-xs bg-[#0F1521] border border-[#232D3F] text-white placeholder:text-[#8B95A5] focus:outline-none focus:border-[#0057FF] rounded-none"
             />
           </div>
         </div>
 
-        {/* Table */}
-        <div className="overflow-x-auto">
+        {/* 1. Mobile Cards View (Visible on < 640px) */}
+        <div className="sm:hidden divide-y divide-[#232D3F]">
+          {filteredLeaderboard.map((emp, index) => {
+            const rank = index + 1;
+            return (
+              <div key={emp.id} className="p-3.5 flex items-center justify-between gap-3 hover:bg-[#0F1521]/60 transition-colors">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className={`w-6 h-6 text-xs font-black flex items-center justify-center shrink-0 ${
+                    rank === 1 ? 'bg-[#0057FF] text-white' : 'bg-[#0F1521] border border-[#232D3F] text-[#8B95A5]'
+                  }`}>
+                    #{rank}
+                  </span>
+                  <img
+                    src={emp.avatar}
+                    alt={emp.name}
+                    className="w-9 h-9 rounded-none object-cover border border-[#232D3F] shrink-0"
+                  />
+                  <div className="min-w-0">
+                    <div className="font-extrabold uppercase italic text-white text-xs truncate">
+                      {emp.name}
+                    </div>
+                    <div className="text-[10px] text-[#8B95A5] truncate">
+                      {emp.role}
+                    </div>
+                    <span className="inline-block px-1.5 py-0.2 bg-[#0F1521] border border-[#232D3F] text-[9px] font-bold uppercase text-[#8B95A5] mt-1">
+                      {emp.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="text-right shrink-0">
+                  <div className="text-xs font-black text-[#0057FF]">
+                    {emp.totalPoints} PTS
+                  </div>
+                  <div className="text-[10px] font-bold text-white mt-0.5">
+                    {emp.winsCount}x Juara
+                  </div>
+                  <div className="text-[10px] text-[#8B95A5]">
+                    {emp.totalCashWon}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* 2. Desktop Full Table View (Visible on >= 640px) */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-[#0F1521] border-b border-[#232D3F] text-[#8B95A5] text-[10px] font-black uppercase tracking-wider">
               <tr>
