@@ -13,9 +13,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'KREASIHUB — Sistem Sayembara & Inovasi Agensi',
+  title: 'KREASIHUB',
   description:
     'Platform Sayembara & Inovasi Internal Perusahaan untuk agensi kreatif & digital. Publikasikan tantangan operasional, kumpulkan inovasi tim, dan bangun perpustakaan aset terstandar.',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Outer Cobalt Blue Background -->
+  <rect width="512" height="512" fill="#0057FF"/>
+  <!-- Obsidian Logo Container with Thin Crisp White Border -->
+  <rect x="26" y="171" width="460" height="170" fill="#060A13" stroke="#FFFFFF" stroke-width="12"/>
+  <!-- Vibrant Blue Solid Square Emblem -->
+  <rect x="62" y="221" width="60" height="60" fill="#0057FF"/>
+  <!-- Bold White KREASIHUB Typography -->
+  <text x="146" y="268" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-style="italic" font-size="58" letter-spacing="3">KREASIHUB</text>
+</svg>
