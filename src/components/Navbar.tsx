@@ -94,10 +94,10 @@ export default function Navbar() {
             {role === 'admin' ? (
               <button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="ml-2 inline-flex items-center gap-1 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider bg-[#060A13] text-white border-2 border-white hover:bg-white hover:text-[#0057FF] transition-colors"
+                className="ml-2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider bg-[#060A13] text-white border-2 border-white hover:bg-white hover:text-[#0057FF] transition-colors"
               >
                 <Plus className="w-3.5 h-3.5" />
-                <span>+ BUAT SAYEMBARA</span>
+                <span>BUAT SAYEMBARA</span>
               </button>
             ) : (
               <button
@@ -177,7 +177,7 @@ export default function Navbar() {
                 className="w-full mt-3 py-3 px-3.5 text-xs font-black uppercase tracking-wider bg-[#0057FF] text-white border-2 border-white flex items-center justify-center gap-2 shadow-md active:bg-blue-600 transition-colors"
               >
                 <Plus className="w-4 h-4" />
-                <span>+ BUAT SAYEMBARA BARU</span>
+                <span>BUAT SAYEMBARA BARU</span>
               </button>
             )}
           </div>

@@ -72,7 +72,7 @@ export default function HomePage() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#0057FF] text-white text-xs font-black uppercase tracking-wider hover:bg-blue-600 transition-colors border border-white/20 rounded-none shadow-xs"
             >
               <Plus className="w-4 h-4" />
-              <span>+ BUAT SAYEMBARA BARU</span>
+              <span>BUAT SAYEMBARA BARU</span>
             </button>
           )}
         </div>
